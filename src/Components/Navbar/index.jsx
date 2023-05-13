@@ -1,113 +1,119 @@
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import {useContext} from 'react'
-import {ShoppingCartContext} from '../../Context'
 import { ShoppingBagIcon } from '@heroicons/react/24/solid'
-
+import { ShoppingCartContext } from '../../Context'
 
 const Navbar = () => {
-const context = useContext(ShoppingCartContext)
-const activeStyle = 'underline underline-offset-4'
+  const context = useContext(ShoppingCartContext)
+  const activeStyle = 'underline underline-offset-4'
 
-return (
+  return (
     <nav className='flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light'>
-    <ul className='flex items-center gap-3'>
+      <ul className='flex items-center gap-3'>
         <li className='font-semibold text-lg'>
-        <NavLink to='/'>
+          <NavLink to='/'>
             Shopi
-        </NavLink>
+          </NavLink>
         </li>
         <li>
-        <NavLink
+          <NavLink
             to='/'
+            onClick={() => context.setSearchByCategory()}
             className={({ isActive }) =>
-            isActive ? activeStyle : undefined
+              isActive ? activeStyle : undefined
             }>
             All
-        </NavLink>
+          </NavLink>
         </li>
         <li>
-        <NavLink
+          <NavLink
             to='/clothes'
+            onClick={() => context.setSearchByCategory('clothes')}
             className={({ isActive }) =>
-            isActive ? activeStyle : undefined
+              isActive ? activeStyle : undefined
             }>
             Clothes
-        </NavLink>
+          </NavLink>
         </li>
         <li>
-        <NavLink
+          <NavLink
             to='/electronics'
+            onClick={() => context.setSearchByCategory('electronics')}
             className={({ isActive }) =>
-            isActive ? activeStyle : undefined
+              isActive ? activeStyle : undefined
             }>
             Electronics
-        </NavLink>
+          </NavLink>
         </li>
         <li>
-        <NavLink
+          <NavLink
             to='/furnitures'
+            onClick={() => context.setSearchByCategory('furnitures')}
             className={({ isActive }) =>
-            isActive ? activeStyle : undefined
+              isActive ? activeStyle : undefined
             }>
             Furnitures
-        </NavLink>
+          </NavLink>
         </li>
         <li>
-        <NavLink
+          <NavLink
             to='/toys'
+            onClick={() => context.setSearchByCategory('toys')}
             className={({ isActive }) =>
-            isActive ? activeStyle : undefined
+              isActive ? activeStyle : undefined
             }>
             Toys
-        </NavLink>
+          </NavLink>
         </li>
         <li>
-        <NavLink
+          <NavLink
             to='/others'
+            onClick={() => context.setSearchByCategory('others')}
             className={({ isActive }) =>
-            isActive ? activeStyle : undefined
+              isActive ? activeStyle : undefined
             }>
             Others
-        </NavLink>
+          </NavLink>
         </li>
-    </ul>
-    <ul className='flex items-center gap-3'>
+      </ul>
+      <ul className='flex items-center gap-3'>
         <li className='text-black/60'>
-        teff@platzi.com
+          teff@platzi.com
         </li>
         <li>
-        <NavLink
+          <NavLink
             to='/my-orders'
             className={({ isActive }) =>
-            isActive ? activeStyle : undefined
+              isActive ? activeStyle : undefined
             }>
             My Orders
-        </NavLink>
+          </NavLink>
         </li>
         <li>
-        <NavLink
+          <NavLink
             to='/my-account'
             className={({ isActive }) =>
-            isActive ? activeStyle : undefined
+              isActive ? activeStyle : undefined
             }>
             My Account
-        </NavLink>
+          </NavLink>
         </li>
         <li>
-        <NavLink
+          <NavLink
             to='/sing-in'
             className={({ isActive }) =>
-            isActive ? activeStyle : undefined
+              isActive ? activeStyle : undefined
             }>
             Sign In
-    </NavLink>
+          </NavLink>
         </li>
         <li className='flex items-center'>
-        <ShoppingBagIcon className='h-6 w-6 text-black' /> <div>{context.count}</div>
+          <ShoppingBagIcon className='h-6 w-6 text-black'></ShoppingBagIcon>
+          <div>{context.cartProducts.length}</div>
         </li>
-    </ul>
+      </ul>
     </nav>
-)
+  )
 }
 
 export default Navbar

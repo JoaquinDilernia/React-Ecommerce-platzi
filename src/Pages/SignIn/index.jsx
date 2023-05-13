@@ -1,11 +1,11 @@
 import Layout from '../../Components/Layout'
 
-function NotFound() {
+function SignIn() {
   return (
     <Layout>
-      NotFound
+      SignIn
     </Layout>
   )
 }
 
-export default NotFound
+export default SignIn

@@ -1,6 +1,4 @@
-import React from 'react'
-
-const LayOut = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <div className='flex flex-col items-center mt-20'>
       {children}
@@ -8,4 +6,4 @@ const LayOut = ({children}) => {
   )
 }
 
-export default LayOut
+export default Layout

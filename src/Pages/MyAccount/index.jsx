@@ -1,13 +1,10 @@
-import React from 'react'
-import LayOut from '../../Components/LayOut'
+import Layout from '../../Components/Layout'
 
-const MyAccount = () => {
+function MyAccount() {
   return (
-    <div>
-    <LayOut>
-      <h1>Home</h1>
-    </LayOut>
-    </div>
+    <Layout>
+      MyAccount
+    </Layout>
   )
 }
 
